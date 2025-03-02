@@ -1,3 +1,7 @@
+NOTE: This is based on a now archived repository: https://github.com/mreram
+
+I have added the ability to have the callouts to the left or right side in addition to top or bottom.
+
 # :flashlight:ShowCaseView:flashlight:
 [![Release](https://jitpack.io/v/mreram/ShowCaseView.svg)](https://jitpack.io/#mreram/ShowCaseView)
 [![APK](https://img.shields.io/badge/APK-Demo-brightgreen.svg)](https://github.com/mreram/ShowCaseView/raw/master/demo-flatShowCaseView.apk)
