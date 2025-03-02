@@ -38,33 +38,30 @@ public class MainActivity extends AppCompatActivity {
                 .setContentText("Guide Description Text\n .....Guide Description Text\n .....Guide Description Text .....")
                 .setGravity(Gravity.center)
                 .setDismissType(DismissType.anywhere)
-                .setPointerType(PointerType.arrow)
+                .setPointerType(PointerType.circle)
                 .setTargetView(view1)
-                .setGuideListener(new GuideListener() {
-                    @Override
-                    public void onDismiss(View view) {
-                        switch (view.getId()) {
-                            case R.id.view1:
-                                builder.setGravity(Gravity.sideauto).setTargetView(view2).build();
-                                break;
-                            case R.id.view2:
-                                builder.setGravity(Gravity.auto).setTargetView(view3).build();
-                                break;
-                            case R.id.view3:
-                                builder.setGravity(Gravity.auto).setTargetView(view4).build();
-                                break;
-                            case R.id.view4:
-                                builder.setGravity(Gravity.auto).setTargetView(view5).build();
-                                break;
-                            case R.id.view5:
-                                builder.setGravity(Gravity.sidecenter).setTargetView(view6).build();
-                                break;
-                            case R.id.view6:
-                                return;
-                        }
-                        mGuideView = builder.build();
-                        mGuideView.show();
+                .setGuideListener(view -> {
+                    switch (view.getId()) {
+                        case R.id.view1:
+                            builder.setGravity(Gravity.sideauto).setTargetView(view2).build();
+                            break;
+                        case R.id.view2:
+                            builder.setGravity(Gravity.auto).setTargetView(view3).build();
+                            break;
+                        case R.id.view3:
+                            builder.setGravity(Gravity.auto).setTargetView(view4).build();
+                            break;
+                        case R.id.view4:
+                            builder.setGravity(Gravity.auto).setTargetView(view5).build();
+                            break;
+                        case R.id.view5:
+                            builder.setGravity(Gravity.sidecenter).setTargetView(view6).build();
+                            break;
+                        case R.id.view6:
+                            return;
                     }
+                    mGuideView = builder.build();
+                    mGuideView.show();
                 });
 
         mGuideView = builder.build();
@@ -74,12 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updatingForDynamicLocationViews() {
-        view4.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                mGuideView.updateGuideViewLocation();
-            }
-        });
+        view4.setOnFocusChangeListener((view, b) -> mGuideView.updateGuideViewLocation());
     }
 
 }
